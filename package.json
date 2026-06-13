@@ -5,9 +5,10 @@
   "type": "module",
   "description": "Minimal Multi-Agent Evidence-Separated UEBA prototype and conference results",
   "scripts": {
+    "eval:llm:smoke": "node ./tools/cli/run_multi_agent_triage_eval.js --dataset ./data/datasets/dev_smoke_cases.json --labels ./data/datasets/case_labels.json --mode multi-agent --repeats 1 --concurrency 2 --out ./out/llm_smoke",
+    "eval:llm:stability": "node ./tools/cli/run_multi_agent_triage_eval.js --dataset ./data/datasets/stability_cases.json --labels ./data/datasets/case_labels.json --mode multi-agent --repeats 1 --concurrency 4 --out ./out/llm_stability_once",
+    "eval:deterministic": "node ./tools/cli/run_multi_agent_triage_eval.js --dataset ./data/datasets/stability_cases.json --labels ./data/datasets/case_labels.json --mode deterministic --repeats 5 --out ./out/deterministic_stability",
     "multi-agent:dataset": "node ./tools/cli/build_multi_agent_eval_dataset.js --source ./out/cert_selected_dataset/selected_dataset.raw.json --profiles ./out/cert_selected_dataset/user_behavior_profiles.json --out ./out/multi_agent_triage/datasets",
-    "multi-agent:llm:smoke": "node ./tools/cli/run_multi_agent_triage_eval.js --dataset ./out/multi_agent_triage/datasets/dev_smoke_cases.json --labels ./out/multi_agent_triage/datasets/case_labels.json --mode multi-agent --repeats 1 --concurrency 2 --out ./out/multi_agent_triage/llm_smoke",
-    "multi-agent:deterministic": "node ./tools/cli/run_multi_agent_triage_eval.js --dataset ./out/multi_agent_triage/datasets/stability_cases.json --labels ./out/multi_agent_triage/datasets/case_labels.json --mode deterministic --repeats 5 --out ./out/multi_agent_triage/stability",
     "test": "node ./tools/test/test_shield_multi_agent_schema.js && node ./tools/test/test_shield_multi_agent_dataset_builder.js && node ./tools/test/test_shield_multi_agent_supervisor.js && node ./tools/test/test_shield_multi_agent_parallel_triage.js && node ./tools/test/test_shield_multi_agent_eval_metrics.js && node ./tools/test/test_shield_multi_agent_langchain_runner.js"
   },
   "engines": {

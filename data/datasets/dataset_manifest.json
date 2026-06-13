@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-06-13T19:58:52.085Z",
+  "seed": "20260615-multi-agent-triage-v1",
+  "out_dir": "/home/ys/workspace/SHIELD/out/multi_agent_triage/datasets",
+  "files": {
+    "dev_smoke_cases": "dev_smoke_cases.json",
+    "stability_cases": "stability_cases.json",
+    "full_eval_cases": "full_eval_cases.json",
+    "case_labels": "case_labels.json"
+  },
+  "counts": {
+    "smoke": 30,
+    "stability": 60,
+    "full_eval": 1414,
+    "labels": 1414
+  },
+  "positive_in_smoke": 15,
+  "negative_in_smoke": 15,
+  "positive_in_stability": 30,
+  "negative_in_stability": 30,
+  "positive_in_full_eval": 89,
+  "negative_in_full_eval": 1325
+}

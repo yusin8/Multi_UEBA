@@ -45,14 +45,36 @@ docs/                              # 발표 흐름 및 구현 결과 정리
 results/                           # 최종 60-case 실험 결과 요약
 ```
 
-## 실행
+## 바로 실행하기
 
-```bash
-npm install
-npm test
+이 저장소에는 발표용으로 사용한 작은 case-level 평가 데이터셋이 포함되어 있습니다.
+
+포함 데이터:
+
+```text
+data/datasets/dev_smoke_cases.json     # 30 cases
+data/datasets/stability_cases.json     # 60 cases
+data/datasets/case_labels.json
+data/datasets/dataset_manifest.json
 ```
 
-LLM 실행에는 `.env` 또는 환경 변수에 OpenAI key가 필요합니다.
+따라서 원본 CERT 데이터셋 없이도, API key만 넣으면 LLM multi-agent 평가를 바로 실행할 수 있습니다.
+
+### 1. 설치
+
+```bash
+git clone https://github.com/yusin8/Multi_UEBA.git
+cd Multi_UEBA
+npm install
+```
+
+### 2. API key 설정
+
+```bash
+cp .env.example .env
+```
+
+`.env`에 본인 키를 넣습니다.
 
 ```bash
 OPENAI_API_KEY=...
@@ -60,8 +82,35 @@ LANGSMITH_API_KEY=...
 LANGSMITH_TRACING=true
 ```
 
+### 3. 테스트
+
+```bash
+npm test
+```
+
+### 4. LLM 평가 실행
+
+작은 smoke set:
+
+```bash
+npm run eval:llm:smoke
+```
+
+발표에 사용한 60개 stability set:
+
+```bash
+npm run eval:llm:stability
+```
+
+LLM 비용 없이 deterministic baseline만 확인:
+
+```bash
+npm run eval:deterministic
+```
+
 ## 주의
 
 - 이 결과는 전체 CERT 전체 로그 성능이 아니라, 선택된 60개 stability case 기준입니다.
 - 원본 CERT 데이터셋과 API key는 저장소에 포함하지 않았습니다.
+- 저장소에는 재현용으로 가공된 case-level 평가셋만 포함했습니다.
 - LLM을 파인튜닝한 것이 아니라, LangChain 기반 specialist agent를 구성한 것입니다.
