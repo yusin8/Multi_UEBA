@@ -1,0 +1,12 @@
+[
+  {
+    "case_id": "cert:r5.2:r5.2-2-GWG0497",
+    "label": 1,
+    "predicted": 0
+  },
+  {
+    "case_id": "cert:r5.2:r5.2-2-KSS1005",
+    "label": 1,
+    "predicted": 0
+  }
+]

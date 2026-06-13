@@ -1,0 +1,5 @@
+method_key,method,tp,fp,fn,tn,precision,recall,f1,review_queue_per_100_normal
+siem_rule_baseline,Existing SIEM,0,0,30,30,0,0,0,0
+single_agent_ueba,Single-Agent UEBA,10,0,20,30,1,0.3333333333333333,0.5,0
+multi_agent_no_evidence,Multi-Agent UEBA,28,8,2,22,0.7777777777777778,0.9333333333333333,0.8484848484848485,26.666666666666668
+multi_agent_evidence_separated,Multi-Agent + Evidence-Separated UEBA,28,0,2,30,1,0.9333333333333333,0.9655172413793104,0
