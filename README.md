@@ -11,6 +11,10 @@
 - PPT에서 어떤 흐름으로 설명하면 좋은지
 - API key만 넣고 어떻게 실행하면 되는지
 
+![Multi-Agent Evidence-Separated UEBA Framework](docs/assets/multi_agent_evidence_separated_framework.png)
+
+> Figure. Evidence-separated multi-agent UEBA framework for insider-threat triage.
+
 ---
 
 ## 1. 한 줄 요약
