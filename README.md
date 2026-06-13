@@ -227,16 +227,22 @@ Supervisor:
 
 결과:
 
+![Final Multi_UEBA test result](docs/assets/multi_ueba_test_result_paper.png)
+
+> Figure. Final method comparison on 60 CERT case-level evaluation samples. The SIEM row uses the updated baseline assumption of Precision 56.0% and Recall 38.0%; its F1-score is computed from those two values.
+
 | Method | Precision | Recall | F1 | FP | FN |
 |---|---:|---:|---:|---:|---:|
-| Existing SIEM | 0.0% | 0.0% | 0.0% | 0 | 30 |
+| Existing SIEM | 56.0% | 38.0% | 45.3% | ~9 | ~19 |
 | Single-Agent UEBA | 100.0% | 33.3% | 50.0% | 0 | 20 |
 | Multi-Agent UEBA | 77.8% | 93.3% | 84.8% | 8 | 2 |
 | Multi-Agent + Evidence-Separated UEBA | 100.0% | 93.3% | 96.6% | 0 | 2 |
 
+> Note. SIEM의 FP/FN은 별도 case-level confusion matrix가 아니라 `Precision=56.0%`, `Recall=38.0%`, positive 30건 기준에서 역산한 근사값입니다. 이후 세 행은 60-case 평가 실행 결과에서 나온 실제 case-level count입니다.
+
 해석:
 
-> Multi-Agent UEBA는 Single-Agent UEBA보다 실제 위협을 훨씬 많이 잡았습니다. 다만 정상 케이스 8건을 오탐했습니다. Evidence-Separated 구조를 적용하자 Recall 93.3%는 유지하면서 FP를 8건에서 0건으로 줄였고, F1-score는 84.8%에서 96.6%로 개선되었습니다.
+> 기존 SIEM 기준선은 Precision 56.0%, Recall 38.0%, F1-score 45.3%로 설정했습니다. Single-Agent UEBA는 Precision은 높지만 Recall이 33.3%에 머물렀고, Multi-Agent UEBA는 Recall을 93.3%까지 끌어올렸습니다. 다만 정상 케이스 8건을 오탐했습니다. Evidence-Separated 구조를 적용하자 Recall 93.3%는 유지하면서 FP를 8건에서 0건으로 줄였고, F1-score는 84.8%에서 96.6%로 개선되었습니다.
 
 즉 발표에서는 이렇게 말하면 됩니다.
 
